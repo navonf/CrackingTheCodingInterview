@@ -10,29 +10,32 @@ import java.util.*;
 public class ArraysAndStrings {
 
   public static void main(String[] args) {
-
-    isUnique("hello");
+    String nav = "nav";
+    String hello = "hello";
+    System.out.println("Unique? " + nav + ": " + isUnique(nav));
+    System.out.println("Unique? " + hello + ": " + isUnique(hello));
   }
 
-  public static void isUnique(String str) {
+  public static boolean isUnique(String str) {
     // boolean array to check if each letter a alphabetical letter has been used.
     boolean chars[] = new boolean[26];
 
     // return if string is larger than 280 chars, can't excede.
     if (str.length() > 280) {
-      System.out.println("shit to long");
+      return false;
     }
 
     for(int i=0; i<str.length(); i++) {
-      System.out.println(str.charAt(i) - 'a' + ":  " + str.charAt(i));
+      // System.out.println(str.charAt(i) - 'a' + ":  " + str.charAt(i));
       if (chars[str.charAt(i) - 'a'] == true) {
-        System.out.println("repeated character");
+        return false;
       }
       else {
         chars[str.charAt(i) - 'a'] = true;
-        System.out.println("no repeat");
       }
     }
+
+    return true;
   }
 
 }
