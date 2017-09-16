@@ -29,9 +29,7 @@ public class ArraysAndStrings {
     // + isUniqueButQuickerAndShorter(hello));
 
     // isPermutation()
-    System.out.println("is this a perm? " + isPermutation("asdasgodddd", "ddddasdasog"));
-
-    // System.out.println(urlify("Mr John Smith     "));
+    System.out.println("is this a permutation? " + isPermutation("asdasgodddd", "ddddasdasog"));
   }
 
   public static boolean isPermutation(String strOne, String strTwo) {
