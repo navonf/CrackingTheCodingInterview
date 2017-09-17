@@ -9,14 +9,19 @@ public class Moderate {
 
   public static void main(String[] args) {
     // number swapper, page 462
-    int a = -900;
-    int b = -4;
-    System.out.println("Swap a: " + a + " Swap b: " + b);
+    System.out.println("Number swapper:");
+    int a = 900;
+    int b = 4000;
+    System.out.println("a: " + a + " b: " + b);
     noTempVariableSwap(a, b);
 
+    System.out.println();
+
     // contiguous sequence, page 498
+    System.out.println("Max contiguous sequence:");
     int[] arr = {2, 3, -8, -1, 2, 4, -2, 3};
-    System.out.println("The sum is : " + maxSequence(arr));
+    System.out.println("Sequence: " + Arrays.toString(arr));
+    System.out.println("Greatest contiguous sum: " + maxSequence(arr));
   }
 
   public static int maxSequence(int[] array) {
@@ -38,15 +43,15 @@ public class Moderate {
 
   public static void noTempVariableSwap(int a, int b) {
     // we find the diff, in this case.
-    // diff = a (bigger) - b (smaller)
+    // diff = a - b
     a = a - b;
 
-    // now, diff + smaller number. this gives us the bigger number
-    // b (was smaller number) = a (diff) + b (small)
+    // now, diff + second number will yeild first number
+    // b  = a (diff) + b (second number)
     b = a + b;
 
-    // now, bigger - diff. this gives us the smaller number
-    // a = b (newly switched bigger number) - a (diff)
+    // now, first number - diff. this gives us the second number
+    // a = b (newly switched second number) - a (diff)
     a = b - a;
 
     // we acheived a swap without using a temp variable
