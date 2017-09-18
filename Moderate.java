@@ -17,6 +17,16 @@ public class Moderate {
 
     System.out.println();
 
+    // word frequencies
+    System.out.println("Word counter:");
+    String[] book = new String[] {"how", "much", "wood", "could", "a", "woodchuck",
+    "chuck", "if", "a", "chuck", "could", "chuck", "wood", "c huck"};
+    String word = "chuck";
+    System.out.println("Our String is: " + Arrays.toString(book));
+    System.out.println("The word \"" + word + "\" appears: " + wordCount(book, word) + " times");
+
+    System.out.println();
+
     // contiguous sequence, page 498
     System.out.println("Max contiguous sequence:");
     int[] arr = {2, 3, -8, -1, 2, 4, -2, 3};
@@ -32,8 +42,7 @@ public class Moderate {
       if((array[i] + sum) > 0) {
         sum += array[i];
         maxSum = (sum > maxSum) ? sum : maxSum;
-      }
-      else {
+      } else {
         sum = 0;
       }
     }
@@ -56,6 +65,18 @@ public class Moderate {
 
     // we acheived a swap without using a temp variable
     System.out.println("Swapped a: " + a + " Swapped b: " + b);
+  }
+
+  public static int wordCount(String[] book, String word) {
+    // shout out to @justinnp for the help on this one
+    int count = 0;
+    word = word.trim().toLowerCase();
+
+    for(String w : book) {
+      if(w.trim().toLowerCase().equals(word))
+        count++;
+    }
+    return count;
   }
 
 }
