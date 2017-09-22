@@ -1,5 +1,6 @@
 // Navon Francis
 //
+//
 // Cracking the Coding Interview Moderate Section
 
 import java.io.*;
@@ -10,8 +11,9 @@ public class Moderate {
   public static void main(String[] args) {
     // number swapper, page 462
     System.out.println("Number swapper:");
-    int a = 900;
-    int b = 4000;
+    int a = 9;
+    int b = 4;
+
     System.out.println("a: " + a + " b: " + b);
     noTempVariableSwap(a, b);
 
@@ -20,7 +22,7 @@ public class Moderate {
     // word frequencies
     System.out.println("Word counter:");
     String[] book = new String[] {"how", "much", "wood", "could", "a", "woodchuck",
-    "chuck", "if", "a", "chuck", "could", "chuck", "wood", "c huck"};
+    "chuck", "if", "a", "chuck", "could", "chuck", "wood", "chuck"};
     String word = "chuck";
     System.out.println("Our String is: " + Arrays.toString(book));
     System.out.println("The word \"" + word + "\" appears: " + wordCount(book, word) + " times");
@@ -32,7 +34,24 @@ public class Moderate {
     int[] arr = {2, 3, -8, -1, 2, 4, -2, 3};
     System.out.println("Sequence: " + Arrays.toString(arr));
     System.out.println("Greatest contiguous sum: " + maxSequence(arr));
+
+    // LinkedList<Integer> list = new LinkedList<Integer>(Arrays.asList(1, 2, 3, 4, 3));
+    // System.out.println("deleted dup: " + deleteDups(list.get(0)));
   }
+
+  // public static void deleteDups(LinkedListNode head) {
+  //   HashSet<Integer> set = new HashSet<Integer>();
+  //
+  //   while(head != null) {
+  //     if(set.contains(head)) {
+  //
+  //     }
+  //     else {
+  //       set.add(head);
+  //     }
+  //     head = head.next;
+  //   }
+  // }
 
   public static int maxSequence(int[] array) {
     int sum = 0;
