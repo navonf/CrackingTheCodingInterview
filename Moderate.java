@@ -22,7 +22,7 @@ public class Moderate {
     // word frequencies
     System.out.println("Word counter:");
     String[] book = new String[] {"how", "much", "wood", "could", "a", "woodchuck",
-    "chuck", "if", "a", "chuck", "could", "chuck", "wood", "chuck"};
+    "chuck", "if", "a", "chuck", "could", "chuck", "wood", ",chuck"};
     String word = "chuck";
     System.out.println("Our String is: " + Arrays.toString(book));
     System.out.println("The word \"" + word + "\" appears: " + wordCount(book, word) + " times");
@@ -35,11 +35,27 @@ public class Moderate {
     System.out.println("Sequence: " + Arrays.toString(arr));
     System.out.println("Greatest contiguous sum: " + maxSequence(arr));
 
-    // LinkedList<Integer> list = new LinkedList<Integer>(Arrays.asList(1, 2, 3, 4, 3));
-    // System.out.println("deleted dup: " + deleteDups(list.get(0)));
+    int [] arra = {1, 2, 5, 3, 2};
+    System.out.println(arra);
+    System.out.println("deleted dup: " + dup(arra));
   }
 
-  // public static void deleteDups(LinkedListNode head) {
+  public static int dup(int[] arr) {
+    HashSet<Integer> set = new HashSet<Integer>();
+
+    for(int i=0; i<arr.length; i++) {
+      System.out.println(arr[i]);
+      if(set.contains(arr[i])){
+        return arr[i];
+      }
+      else {
+        set.add(arr[i]);
+      }
+    }
+    return -1;
+  }
+
+  // public static void deleteDups(LinkedarrNode head) {
   //   HashSet<Integer> set = new HashSet<Integer>();
   //
   //   while(head != null) {
@@ -92,10 +108,41 @@ public class Moderate {
     word = word.trim().toLowerCase();
 
     for(String w : book) {
-      if(w.trim().toLowerCase().equals(word))
+      if(w.replaceAll(",$", "").trim().toLowerCase().equals(word));
         count++;
     }
+
+    String xx = "      Hello friends of, minee";
+
+    System.out.println(xx);
+
+    xx = xx.trim().replaceAll(",", "");
+    String[] wordz = xx.split("\\s+");
+    ArrayList<String> rev = new ArrayList<String>();
+
+    for(int i=wordz.length-1; i>=0; i--) {
+      rev.add(wordz[i]);
+    }
+
+    System.out.println(rev);
+
+
     return count;
+
   }
+  //
+  // take in book
+  //
+  // "hello world my friends"
+  //
+  // put book into an array
+  // int[] newBook = new int[book.size()];
+  // int[] reverseBook = new int[b.size()];
+  //
+  // for int i=0 i<book.size; i++
+  //   arr[i] = book.indexOf(i);
+  //
+  // for int i=book.size-1 i >= 0; i--
+  //
 
 }
