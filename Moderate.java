@@ -112,19 +112,19 @@ public class Moderate {
         count++;
     }
 
-    String xx = "      Hello friends of, minee";
-
-    System.out.println(xx);
-
-    xx = xx.trim().replaceAll(",", "");
-    String[] wordz = xx.split("\\s+");
-    ArrayList<String> rev = new ArrayList<String>();
-
-    for(int i=wordz.length-1; i>=0; i--) {
-      rev.add(wordz[i]);
-    }
-
-    System.out.println(rev);
+    // String xx = "      Hello friends of, minee";
+    //
+    // System.out.println(xx);
+    //
+    // xx = xx.trim().replaceAll(",", "");
+    // String[] wordz = xx.split("\\s+");
+    // ArrayList<String> rev = new ArrayList<String>();
+    //
+    // for(int i=wordz.length-1; i>=0; i--) {
+    //   rev.add(wordz[i]);
+    // }
+    //
+    // System.out.println(rev);
 
 
     return count;
