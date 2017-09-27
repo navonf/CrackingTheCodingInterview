@@ -112,37 +112,8 @@ public class Moderate {
         count++;
     }
 
-    // String xx = "      Hello friends of, minee";
-    //
-    // System.out.println(xx);
-    //
-    // xx = xx.trim().replaceAll(",", "");
-    // String[] wordz = xx.split("\\s+");
-    // ArrayList<String> rev = new ArrayList<String>();
-    //
-    // for(int i=wordz.length-1; i>=0; i--) {
-    //   rev.add(wordz[i]);
-    // }
-    //
-    // System.out.println(rev);
-
-
     return count;
 
   }
-  //
-  // take in book
-  //
-  // "hello world my friends"
-  //
-  // put book into an array
-  // int[] newBook = new int[book.size()];
-  // int[] reverseBook = new int[b.size()];
-  //
-  // for int i=0 i<book.size; i++
-  //   arr[i] = book.indexOf(i);
-  //
-  // for int i=book.size-1 i >= 0; i--
-  //
 
 }
