@@ -113,7 +113,6 @@ public class Moderate {
     }
 
     return count;
-
   }
 
 }

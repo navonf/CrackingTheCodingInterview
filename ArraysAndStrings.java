@@ -29,7 +29,22 @@ public class ArraysAndStrings {
     // + isUniqueButQuickerAndShorter(hello));
 
     // isPermutation()
-    System.out.println("is this a permutation? " + isPermutation("asdasgodddd", "ddddasdasog"));
+    // System.out.println("is this a permutation? " + isPermutation("asdasgodddd", "ddddasdasog"));
+    String str = "'Mr John Smith    '";
+    int len = 13;
+    System.out.println("Turn this string: " + str + ", into a URL:");
+    System.out.println("urlified: " + urlify(str, len));
+  }
+  
+  public static String urlify(String str, int len) {
+    StringBuilder sb = new StringBuilder();
+    for(int i = 0; i < len; i++) {
+      if(str.charAt(i) == ' ')
+        sb.append("%20");
+      else
+        sb.append(str.charAt(i));
+    }
+    return sb.toString();
   }
 
   public static boolean isPermutation(String strOne, String strTwo) {
