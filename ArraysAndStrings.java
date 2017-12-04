@@ -35,7 +35,7 @@ public class ArraysAndStrings {
     System.out.println("Turn this string: " + str + ", into a URL:");
     System.out.println("urlified: " + urlify(str, len));
   }
-  
+
   public static String urlify(String str, int len) {
     StringBuilder sb = new StringBuilder();
     for(int i = 0; i < len; i++) {
