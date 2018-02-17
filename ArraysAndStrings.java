@@ -19,26 +19,71 @@ public class ArraysAndStrings {
 
   public static void main(String[] args) {
     // isUnique()
-    String nav = "nav";
-    String hello = "hello";
+    // String nav = "nav";
+    // String hello = "hello";
     // System.out.println("Unique? " + nav + ": " + isUnique(nav));
-    // // System.out.println("Unique? " + hello + ": " + isUnique(hello));
+    // System.out.println("Unique? " + hello + ": " + isUnique(hello));
     // System.out.println("Quick unique..? " + nav + ": "
     // + isUniqueButQuickerAndShorter(nav));
     // System.out.println("Quick unique..? " + hello + ": "
     // + isUniqueButQuickerAndShorter(hello));
 
     // isPermutation()
-    // System.out.println("is this a permutation? " + isPermutation("asdasgodddd", "ddddasdasog"));
-    String str = "'Mr John Smith    '";
-    int len = 13;
-    System.out.println("Turn this string: " + str + ", into a URL:");
-    System.out.println("urlified: " + urlify(str, len));
+    // System.out.println("is this a permutation? " + isPermutation("yolo", "oloy"));
+    // String str = "'Mr John Jacob hello
+    // int len = 19;
+    // System.out.println("Turn this string: " + str + ", into a URL:");
+    // System.out.println("urlified: " + urlify(str, len));
+    //
+
+    String comp = "aabcccccaaa";
+    String same = "abcd";
+    System.out.println("uncompressed: " + comp + ", compressed string: " + compress(comp));
+    System.out.println("uncompressed: " + same + ", compressed string: " + compress(same));
+
+  }
+
+  public static String compress(String str) {
+    // setting up our counter for the amount of consecutive letters.
+    int count = 0;
+    int finalLen = countCompression(str);
+    if(finalLen > str.length()) {
+      System.out.println("you returned early! nice");
+      return str;
+    }
+
+    StringBuilder sb = new StringBuilder(finalLen);
+
+    for(int i = 0; i < str.length(); i++) {
+      count++;
+      if(i + 1 >= str.length() || str.charAt(i) != str.charAt(i+1)) {
+        sb.append(str.charAt(i));
+        sb.append(count);
+        count = 0;
+      }
+    }
+
+    return sb.length() < str.length() ? sb.toString() : str;
+
+  }
+
+  private static int countCompression(String str) {
+    int count = 0;
+    int compressed = 0;
+    for(int i = 0; i < str.length(); i++) {
+      count++;
+      if(i + 1 >= str.length() || str.charAt(i) != str.charAt(i+1)) {
+        compressed += 2;
+        count = 0;
+      }
+    }
+
+    return compressed;
   }
 
   public static String urlify(String str, int len) {
     StringBuilder sb = new StringBuilder();
-    for(int i = 0; i < len; i++) {
+    for(int i = 0; i < len+1; i++) {
       if(str.charAt(i) == ' ')
         sb.append("%20");
       else
@@ -55,51 +100,51 @@ public class ArraysAndStrings {
     Arrays.sort(newStringOne);
     Arrays.sort(newStringTwo);
 
-    String sortStrOne = new String(newStringOne);
-    String sortStrTwo = new String(newStringTwo);
+    String sortedStrOne = new String(newStringOne);
+    String sortedStrTwo = new String(newStringTwo);
 
-    System.out.println("1: " + sortStrOne + " 2: " + sortStrTwo);
+    System.out.println("1: " + sortedStrOne + " 2: " + sortedStrTwo);
 
-    return sortStrOne.equals(sortStrTwo);
+    return sortedStrOne.equals(sortedStrTwo);
   }
 
-  // public static boolean isUnique(String str) {
-  //   // boolean array to check if each letter a alphabetical letter has been used.
-  //   boolean chars[] = new boolean[26];
-  //
-  //   // return if string is larger than 280 chars, can't excede.
-  //   if (str.length() > 26) {
-  //     return false;
-  //   }
-  //
-  //   for (int i=0; i<str.length(); i++) {
-  //     // System.out.println(str.charAt(i) - 'a' + ":  " + str.charAt(i));
-  //     if (chars[str.charAt(i) - 'a'] == true) {
-  //       return false;
-  //     }
-  //     else {
-  //       chars[str.charAt(i) - 'a'] = true;
-  //     }
-  //   }
-  //
-  //   return true;
-  //   // Time Complexity: O(str.length()), generalized: O(n)
-  //   // Space Complexity: O(1) because we never an array bigger than 26
-  // }
-  //
-  // public static boolean isUniqueButQuickerAndShorter(String str) {
-  //   // let's try and use a hashset boyos
-  //   HashSet setty = new HashSet<String>();
-  //
-  //   for (int i=0; i<str.length(); i++) {
-  //     if (setty.contains(str.charAt(i))) {
-  //       return false;
-  //     }
-  //     else {
-  //       setty.add(str.charAt(i));
-  //     }
-  //   }
-  //   return true;
-  // }
+  public static boolean isUnique(String str) {
+    // boolean array to check if each letter a alphabetical letter has been used.
+    boolean chars[] = new boolean[26];
+
+    // return if string is larger than 280 chars, can't excede.
+    if (str.length() > 26) {
+      return false;
+    }
+
+    for (int i=0; i<str.length(); i++) {
+      // System.out.println(str.charAt(i) - 'a' + ":  " + str.charAt(i));
+      if (chars[str.charAt(i) - 'a'] == true) {
+        return false;
+      }
+      else {
+        chars[str.charAt(i) - 'a'] = true;
+      }
+    }
+
+    return true;
+    // Time Complexity: O(str.length()), generalized: O(n)
+    // Space Complexity: O(1) because we never an array bigger than 26
+  }
+
+  public static boolean isUniqueButQuickerAndShorter(String str) {
+    // let's try and use a hashset boyos
+    HashSet<Character> setty = new HashSet<Character>();
+
+    for (int i=0; i<str.length(); i++) {
+      if (setty.contains(str.charAt(i))) {
+        return false;
+      }
+      else {
+        setty.add(str.charAt(i));
+      }
+    }
+    return true;
+  }
 
 }
