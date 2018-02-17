@@ -16,7 +16,7 @@ import java.io.*;
 import java.util.*;
 
 public class ArraysAndStrings {
-
+  public static final Scanner sc = new Scanner(System.in);
   public static void main(String[] args) {
     // isUnique()
     // String nav = "nav";
@@ -36,10 +36,16 @@ public class ArraysAndStrings {
     // System.out.println("urlified: " + urlify(str, len));
     //
 
-    String comp = "aabcccccaaa";
-    String same = "abcd";
-    System.out.println("uncompressed: " + comp + ", compressed string: " + compress(comp));
-    System.out.println("uncompressed: " + same + ", compressed string: " + compress(same));
+    // compress()
+    // String comp = "aabcccccaaa";
+    // String same = "abcd";
+    // System.out.println("uncompressed: " + comp + ", compressed string: " + compress(comp));
+    // System.out.println("uncompressed: " + same + ", compressed string: " + compress(same));
+
+    // permutations()
+    System.out.println("Enter a string to permute: ");
+    System.out.println(permutations(sc.next(), new ArrayList<String>()));
+
 
   }
 
@@ -145,6 +151,24 @@ public class ArraysAndStrings {
       }
     }
     return true;
+  }
+
+  public static ArrayList<String> permutations(String s, ArrayList<String> r) {
+    permutations("", s, r);
+    return r;
+  }
+
+  private static void permutations(String prefix, String suffix, ArrayList<String> result) {
+    if(suffix.length() == 0) {
+      result.add(prefix);
+    }
+    else {
+      // iterate through, p("a", bc), p("b", ac), ..etc
+      for(int i = 0; i < suffix.length(); i++) {
+        permutations(prefix + suffix.charAt(i),
+        suffix.substring(0, i) + suffix.substring(i + 1, suffix.length()), result);
+      }
+    }
   }
 
 }
