@@ -44,7 +44,8 @@ public class ArraysAndStrings {
 
     // permutations()
     System.out.println("Enter a string to permute: ");
-    System.out.println(permutations(sc.next(), new ArrayList<String>()));
+    // System.out.println(permutations(sc.next(), new ArrayList<String>()));
+    permutations(sc.next(), new ArrayList<String>());
 
 
   }
@@ -165,6 +166,7 @@ public class ArraysAndStrings {
     else {
       // iterate through, p("a", bc), p("b", ac), ..etc
       for(int i = 0; i < suffix.length(); i++) {
+        // System.out.println(suffix.substring(0, i) + " " + suffix.substring(i + 1, suffix.length()));
         permutations(prefix + suffix.charAt(i),
         suffix.substring(0, i) + suffix.substring(i + 1, suffix.length()), result);
       }
